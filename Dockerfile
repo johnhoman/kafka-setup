@@ -26,7 +26,7 @@ RUN curl -O https://apache.claz.org/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.
     && \
     echo "dataDir=/var/lib/zookeeper" >> $ZOOKEEPER_CONF \
     && \
-    echo "clientPort=2181" >> ZOOKEEPER_CONF
+    echo "clientPort=2181" >> $ZOOKEEPER_CONF
 
 EXPOSE 2181
 
