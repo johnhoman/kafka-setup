@@ -28,6 +28,14 @@ RUN curl -O https://apache.claz.org/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.
     && \
     echo "clientPort=2181" >> $ZOOKEEPER_CONF
 
+RUN curl -O http://apache.mirrors.hoobly.com/kafka/2.1.0/kafka_2.12-2.1.0.tgz \
+    && \
+    tar -zxf kafka_2.12-2.1.0.tgz \
+    && \
+    mv kafka_2.12-2.1.0 /usr/local/kafka \
+    && \
+    mkdir /tmp/kafka-logs
+
 EXPOSE 2181
 
 ENTRYPOINT bash
