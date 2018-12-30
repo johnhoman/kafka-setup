@@ -36,6 +36,9 @@ RUN curl -O http://apache.mirrors.hoobly.com/kafka/2.1.0/kafka_2.12-2.1.0.tgz \
     && \
     mkdir /tmp/kafka-logs
 
-EXPOSE 2181
+EXPOSE 2181 9082
 
-ENTRYPOINT bash
+RUN /usr/local/zookeeper/bin/zkServer.sh start
+
+RUN /usr/local/kafka/bin/kafka-server-start.sh -daemon \
+        /usr/local/kafka/config/server.properties
